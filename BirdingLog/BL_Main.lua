@@ -28,8 +28,8 @@ Track = false
 -- Your proficiency in Birding has increased to 9.
 
 Plugins.BirdingLog.Open = function(sender,args)
-	BL_window:SetVisible( true )
-	BL_window:SetZOrder( 2 )
+	BirdingLogWindowInstance:SetVisible( true )
+	BirdingLogWindowInstance:SetZOrder( 2 )
 end
 
 BL_Options = Turbine.PluginData.Load(Turbine.DataScope.Server,"BL_Options")
@@ -183,13 +183,13 @@ function BL_Command:Execute( cmd,args )
 				print("Zone: "..zn)
 				locStr = zc
 				if not Locs[zc] then Locs[zc] = {} end
-				BL_window.zoneMenu:SetText( Zone[zc].z )
+				BirdingLogWindowInstance.zoneMenu:SetText( Zone[zc].z )
 			else printe("Zone not found.") end
 		else printe("Invalid location for Birding.") end
 		return
 	end
 	if args=="show" or cmd=="blw" then
-		BL_window:SetVisible( true )
+		BirdingLogWindowInstance:SetVisible( true )
 		return
 	end
     if args=="sight" then
@@ -245,8 +245,8 @@ end
 Turbine.Shell.AddCommand( "bl;bll;blw;bl?", BL_Command )
 
 Plugins.BirdingLog.Open = function(sender,args)
-	BL_window:SetVisible( true )
-	BL_window:SetZOrder( 2 )
+	BirdingLogWindowInstance:SetVisible( true )
+	BirdingLogWindowInstance:SetZOrder( 2 )
 end
 
 Plugins.BirdingLog.Unload = function(sender,args)
@@ -259,7 +259,7 @@ end
 
 -- Options panel
 import "Vinny.Common.Options"
-OP = Vinny.Common.Options_Init(print,BL_Options,BL_window,"BL_Options")
+OP = Vinny.Common.Options_Init(print,BL_Options,BirdingLogWindowInstance,"BL_Options")
 
 -- Help text
 help = {

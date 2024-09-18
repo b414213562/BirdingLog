@@ -24,9 +24,9 @@ local Quickslot = Turbine.UI.Lotro.Quickslot
 local Qsize = 34
 local Blank
 
-BL_Window = class( Turbine.UI.Lotro.Window )
+BirdingLogWindow = class( Turbine.UI.Lotro.Window )
 
-function BL_Window:AddField(control, text, pos, size)
+function BirdingLogWindow:AddField(control, text, pos, size)
 	local field = control()
 	field:SetParent( self )
 	if text then field:SetText( text ) end
@@ -63,7 +63,7 @@ function BL_Shortcut(sender,name,iname)
 	return itemData
 end
 
-function BL_Window:Constructor()
+function BirdingLogWindow:Constructor()
 	Turbine.UI.Lotro.Window.Constructor( self )
 
 	-- Position the window near the top center of the screen.
@@ -168,7 +168,7 @@ function BL_Window:Constructor()
 
 end
 
-function BL_Window:SetItem(id,item,xname)
+function BirdingLogWindow:SetItem(id,item,xname)
     if not item then item = Mats[id] end
     if not xname then xname = string.format(xlink,id,item.N) end
 	self.id = id
@@ -179,14 +179,14 @@ function BL_Window:SetItem(id,item,xname)
 	self.type:SetText( desc )
 end
 
-BL_window = BL_Window()
+BirdingLogWindowInstance = BirdingLogWindow()
 
 -- Set Escape action
-BL_window:SetWantsKeyEvents( true )
-BL_window.KeyDown = function(sender, args)
+BirdingLogWindowInstance:SetWantsKeyEvents( true )
+BirdingLogWindowInstance.KeyDown = function(sender, args)
 	if( args.Action == Turbine.UI.Lotro.Action.Escape ) then
-		BL_window:SetVisible( false )
+		BirdingLogWindowInstance:SetVisible( false )
 	-- elseif Track and args.Control then 
-	-- 	BL_window.fish:MouseDown(sender, args)
+	-- 	BirdingLogWindowInstance.fish:MouseDown(sender, args)
 	end
 end
