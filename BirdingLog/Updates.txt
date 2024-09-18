@@ -1,0 +1,12 @@
+Version updates of the BirdingLog plugin:
+08/18/24 0.9.4	Added checks for nil values.
+08/08/24 0.9.3	Fixes zone data init error.
+08/06/24 0.9.2	Corrected sighting error.
+08/06/24 0.9.1	Updated the documentation.
+08/06/24 0.9	Changed locations to zones with menu.
+08/04/24 0.8	Added command to set sighting count.
+08/04/24 0.7.1	Corrected Bird/Zone typos.
+08/03/24 0.7	Added buttons and changed to blue.
+08/02/24 0.6.1	Adds .plugincompendium file #
+08/02/24 0.6	Initial public version
+07/30/24 0.4	Initial test version

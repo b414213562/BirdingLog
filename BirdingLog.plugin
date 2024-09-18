@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Plugin>
+  <Information>
+	<Name>BirdingLog</Name>
+	<Author>David Down</Author>
+	<Version>0.9.4</Version>
+	<Image>Vinny/BirdingLog/Bird.tga</Image>
+	<Description>Track sightings from birding.</Description>
+	<website>http://www.lotrointerface.com/downloads/info1241</website>
+  </Information>
+  <Package>Vinny.BirdingLog.BL_Main</Package>
+  <Configuration Apartment="Vinny"/>
+</Plugin>
+
