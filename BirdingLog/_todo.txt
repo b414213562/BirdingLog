@@ -1,0 +1,52 @@
+todo:
+
+1. Determine the maximum time for birding
+	Observation: Birding always takes 30 seconds UNLESS the player moves or otherwise (if possible) cancels the birding.
+		Possible counter observation (not yet seen): If the 3rd re-bird occurs around 20 seconds, is this still true?
+	Observation: When birding is over, skill goes into cooldown, which is about 5 seconds.
+	Observation: Each of the three white-feather events happens in 0-10, 10-20, and 20-30 second sections.
+		Hypothesis: Once you've re-birded in a 10-second window, you will not see another white-feather until the next section.
+	Observation: Character gives up on a white-feather event after approximately 3 seconds.
+	Hypothesis: Incorrectly birding does not change the number of successes. - FALSE
+		Observation: a false birding cancels the appearance of a white-feather event
+		Question: Completely, or only if they coincide?
+			So far: If you bird incorrectly you do not get a white feather event that 10-second section.
+				Further question: Is it suppresing for an absolute amount of time? (i.e. no white-feather event FOR min. 10 seconds?)
+				When incorrectly birding during the 10-20 second range, the 20-30 second range white-feather event is consistently showing up 10 seconds after the bad-birding.
+
+2. Make an on-screen timer with the expected maximum time for birding.
+	2.a. If testing shows a minimum amount of time between white-feathers appearing, visually represent that somehow?
+	2.b. Add a cancel icon somewhere in case the player moves or otherwise cancels the birding.
+
+3. Figure out what skill the player is using to activate birding
+	3a. OR... find the birding skill, hook into its skill cooldown
+	Observation: Hobbies don't show up in the list of Trained Skills.
+	Need to fall back to detecting key-bind for the skill.
+
+	If your have the plugin-recognized birding kit equipped and
+		you are not in combat and
+		you press the birding key then
+			we should assume you birded.
+		end
+
+4. Mark on the timer when we bird, assuming it was successful
+5. experiment to see if successful intra-birding attempts seem to reduce the overall birding time by a given amount.
+
+6. Show Birding proficiency on the UI so I don't have to look in my character/hobby screen.
+
+7. Script to import Birding process from LOTRO Companion.
+
+8. Since Birding happens in specific locations, provide the bounding boxes for each of the regions in question, so /loc output automatically tells us which region we're in.
+	8.a. Provide a button to trigger /loc
+
+9. When printing a list of birds, have an option to sort by rarity.
+
+10. Only pay attention to certain channels.
+
+11. Improvement to Birding collections panel that allows to show just the birds in a region.
+
+12. When unloading, save the zone. If the plugin is loaded within X seconds, accept that zone as true. Otherwise, ask "are you still in zone"?.
+
+13. Use Regional chat channel changes to auto-detect what region we're in. (See Deed Tracker)
+	The alias under Zone does this, need to make it bigger.
+	(How do we hide the shortcut box?)
