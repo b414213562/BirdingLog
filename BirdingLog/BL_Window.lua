@@ -69,12 +69,9 @@ function BirdingLogWindow:Constructor()
 	-- Position the window near the top center of the screen.
 	self:SetSize( 340,250 )
 --	self:SetBackColor( Turbine.UI.Color() )
-	local pos = BL_Options.pos1 or 
-		{ x=(Turbine.UI.Display.GetWidth() - self:GetWidth())/3, 
-		y=(Turbine.UI.Display:GetHeight() - self:GetHeight())*.7 }
-	self:SetPosition( pos.x, pos.y )
+	self:SetPosition( CharacterSettings["BL_Window"]["X"], CharacterSettings["BL_Window"]["Y"] )
 	self:SetText( "Birding Log" )
-	self:SetVisible( false )
+	self:SetVisible( CharacterSettings["BL_Window"]["VISIBLE"] )
 
 -- Hobby:Birding action is Type=Hobby(9), Data=0x7000EE1E
 
@@ -166,6 +163,14 @@ function BirdingLogWindow:Constructor()
         BL_Command:Execute("bl","sight")
 	end
 
+    ---comment
+    ---@param sender Window
+    ---@param args table 
+    self.PositionChanged = function(sender, args)
+        local x, y = sender:GetPosition();
+        CharacterSettings["BL_Window"]["X"] = x;
+        CharacterSettings["BL_Window"]["Y"] = y;
+    end
 end
 
 function BirdingLogWindow:SetItem(id,item,xname)
@@ -185,8 +190,13 @@ BirdingLogWindowInstance = BirdingLogWindow()
 BirdingLogWindowInstance:SetWantsKeyEvents( true )
 BirdingLogWindowInstance.KeyDown = function(sender, args)
 	if( args.Action == Turbine.UI.Lotro.Action.Escape ) then
-		BirdingLogWindowInstance:SetVisible( false )
+        BirdingLogWindowInstance:ShowHide( false );
 	-- elseif Track and args.Control then 
 	-- 	BirdingLogWindowInstance.fish:MouseDown(sender, args)
 	end
+end
+
+function BirdingLogWindow:ShowHide(isVisible)
+    self:SetVisible(isVisible);
+    CharacterSettings["BL_Window"]["VISIBLE"] = isVisible;
 end

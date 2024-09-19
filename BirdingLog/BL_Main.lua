@@ -27,11 +27,6 @@ Track = false
 -- You have acquired: [Minnow].
 -- Your proficiency in Birding has increased to 9.
 
-Plugins.BirdingLog.Open = function(sender,args)
-	BirdingLogWindowInstance:SetVisible( true )
-	BirdingLogWindowInstance:SetZOrder( 2 )
-end
-
 BL_Options = Turbine.PluginData.Load(Turbine.DataScope.Server,"BL_Options")
 if not BL_Options then BL_Options = {} end
 
@@ -57,6 +52,28 @@ Totals = Turbine.PluginData.Load(Turbine.DataScope.Character,"BL_Totals")
 if type(Totals) ~= "table" then 
 	Totals = {} 
 	print("Created new birding record")
+end
+
+--- Initialize a setting with a default value, if it's not already there.
+---@param settings table
+---@param key string
+---@param defaultValue any
+function InitSetting(settings, key, defaultValue)
+    if (settings[key] == nil) then
+        settings[key] = defaultValue;
+    end
+end
+
+CharacterSettings = Turbine.PluginData.Load(Turbine.DataScope.Character,"BL_CharacterSettings");
+if (type(CharacterSettings)) ~= "table" then
+    CharacterSettings = {}
+
+    -- Initialize default settings 
+    InitSetting(CharacterSettings, "BL_Window", {});
+    InitSetting(CharacterSettings["BL_Window"], "VISIBLE", false);
+    InitSetting(CharacterSettings["BL_Window"], "X", (Turbine.UI.Display.GetWidth() - 340)/3);
+    InitSetting(CharacterSettings["BL_Window"], "Y", (Turbine.UI.Display:GetHeight() - 300)*.7);
+
 end
 
 import "Vinny.BirdingLog.BL_Window"
@@ -189,7 +206,7 @@ function BL_Command:Execute( cmd,args )
 		return
 	end
 	if args=="show" or cmd=="blw" then
-		BirdingLogWindowInstance:SetVisible( true )
+		BirdingLogWindowInstance:ShowHide( true )
 		return
 	end
     if args=="sight" then
@@ -244,14 +261,10 @@ end
 
 Turbine.Shell.AddCommand( "bl;bll;blw;bl?", BL_Command )
 
-Plugins.BirdingLog.Open = function(sender,args)
-	BirdingLogWindowInstance:SetVisible( true )
-	BirdingLogWindowInstance:SetZOrder( 2 )
-end
-
 Plugins.BirdingLog.Unload = function(sender,args)
     Turbine.PluginData.Save(Turbine.DataScope.Server,"BL_Locs",Locs)
     Turbine.PluginData.Save(Turbine.DataScope.Character,"BL_Totals",Totals)
+    Turbine.PluginData.Save(Turbine.DataScope.Character,"BL_CharacterSettings",CharacterSettings);
     print("Birding record saved.")
 end
 

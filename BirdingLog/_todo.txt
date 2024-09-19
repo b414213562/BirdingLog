@@ -1,9 +1,5 @@
 todo:
 
-0. Nice to haves for development:
-    Save position of window when it moves
-    Save visible state of window when it changes
-
 1. Determine the maximum time for birding
 	Observation: Birding always takes 30 seconds UNLESS the player moves or otherwise (if possible) cancels the birding.
 		Possible counter observation (not yet seen): If the 3rd re-bird occurs around 20 seconds, is this still true?
