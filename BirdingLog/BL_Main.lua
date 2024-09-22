@@ -91,8 +91,10 @@ end
 Turbine.Chat.Received = function (sender,args)
 	local msg = args.Message
 	if not msg then return end
-	local fp = msg:match(fpPat)
-	if fp then Totals.fp = fp return end
+    if (args.ChatType == Turbine.ChatType.Advancement) then
+        local fp = msg:match(fpPat)
+        if fp then Totals.fp = fp return end
+    end
 --	print("Chat type="..args.ChatType)
 	if args.ChatType==Turbine.ChatType.SelfLoot then 
 		if msg:find("You have acquired: ") then
