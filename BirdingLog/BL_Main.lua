@@ -7,6 +7,10 @@ import "Vinny.Common.EII_ID"
 import "Vinny.Common.Sort"
 import "Vinny.BirdingLog.BL_Data"
 
+-- Save player name for later use
+player = Turbine.Gameplay.LocalPlayer.GetInstance()
+pname = player:GetName()
+
 function print(text) Turbine.Shell.WriteLine("<rgb=#00FFFF>BL:</rgb> "..tostring(text)) end
 function printh(text) print("<rgb=#00FF00>"..text.."</rgb>") end
 function printe(text) print("<rgb=#FF6040>Error: "..text.."</rgb>") end
@@ -77,10 +81,6 @@ if (type(CharacterSettings)) ~= "table" then
 end
 
 import "Vinny.BirdingLog.BL_Window"
-
--- Save player name for later use
-player = Turbine.Gameplay.LocalPlayer.GetInstance()
-pname = player:GetName()
 
 printh(FLv..", data loaded.")
 
