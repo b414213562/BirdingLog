@@ -98,6 +98,10 @@ Turbine.Chat.Received = function (sender,args)
 --	print("Chat type="..args.ChatType)
 	if args.ChatType==Turbine.ChatType.SelfLoot then 
 		if msg:find("You have acquired: ") then
+
+            -- stop the UI Timer:
+            BirdingLogWindowInstance:BirdFound();
+
 			local id,name = msg:match(xpat)
 			if not id then id,name = Vinny.Common.EII_ID(msg) end
 			if not id then return end

@@ -5,6 +5,7 @@ import "Turbine.UI.Lotro"
 import "Vinny.Common"
 import "Vinny.Common.DropMenu"
 import "Vinny.Common.ToolTip"
+import "Vinny.BirdingLog.TimerControl"
 
 local labelFont = Turbine.UI.Lotro.Font.Verdana14
 local foreColor = Turbine.UI.Color( 0.9, 0.9, 0 )
@@ -67,7 +68,7 @@ function BirdingLogWindow:Constructor()
 	Turbine.UI.Lotro.Window.Constructor( self )
 
 	-- Position the window near the top center of the screen.
-	self:SetSize( 340,250 )
+	self:SetSize( 340,300 )
 --	self:SetBackColor( Turbine.UI.Color() )
 	self:SetPosition( CharacterSettings["BL_Window"]["X"], CharacterSettings["BL_Window"]["Y"] )
 	self:SetText( "Birding Log" )
@@ -163,6 +164,16 @@ function BirdingLogWindow:Constructor()
         BL_Command:Execute("bl","sight")
 	end
 
+    -- Show how long for the birding action:
+    local timerControl = TimerControl();
+    self.TimerControl = timerControl;
+    timerControl:SetParent(self);
+    timerControl:SetPosition(10, 230);
+    --timerControl:SetBackColor(Turbine.UI.Color.DarkGreen);
+    timerControl:SetSize(320, 40);
+    timerControl:SetActionKey(268435498, false, false, false);
+    timerControl:SetVisible(false);
+
     ---comment
     ---@param sender Window
     ---@param args table 
@@ -199,4 +210,8 @@ end
 function BirdingLogWindow:ShowHide(isVisible)
     self:SetVisible(isVisible);
     CharacterSettings["BL_Window"]["VISIBLE"] = isVisible;
+end
+
+function BirdingLogWindow:BirdFound()
+    self.TimerControl:BirdFound();
 end
