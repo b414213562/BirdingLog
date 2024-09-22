@@ -3,8 +3,11 @@
 
 import "Turbine.Gameplay"
 import "Turbine.UI.Lotro"
+
 import "Vinny.Common.EII_ID"
 import "Vinny.Common.Sort"
+
+import "Vinny.BirdingLog.Functions"
 import "Vinny.BirdingLog.BL_Data"
 
 -- Save player name for later use
