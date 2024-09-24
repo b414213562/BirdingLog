@@ -50,3 +50,7 @@ todo:
 13. Use Regional chat channel changes to auto-detect what region we're in. (See Deed Tracker)
 	The alias under Zone does this, need to make it bigger.
 	(How do we hide the shortcut box?)
+
+14. Add icon to open window.
+
+15. Color the first 5 seconds of the timer differently because it is a mandatory skill cooldown?
