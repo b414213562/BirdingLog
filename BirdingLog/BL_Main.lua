@@ -133,16 +133,7 @@ Turbine.Chat.Received = function (sender,args)
 		end
 		return
 	end
-	if args.ChatType~=Turbine.ChatType.Standard then return end
-	local tt = msg:match("^Taking the contents of the (.+)....$")
-	if tt then last = last==tt return end
-	local r,lx,ly,ox,oy,oz = msg:match(locPat)
-	if not r then r,lx,ly,ox,oy,oz = msg:match(liPat) end
-	if not r then r,lx,ly,ox,oy,oz = msg:match(iPat) end
-	if not r then return end
-	local ew,ns = pos(x0,lx,ox), pos(y0,ly,oy)
-	locStr = string.format("%.1f,%.1f",ns,ew)
-	print("r="..r..", ns="..ns..", ew="..ew.."  ("..locStr..")")
+
 end
 
 local function distance(dy,dx) return math.sqrt(dy*dy+dx*dx) end
