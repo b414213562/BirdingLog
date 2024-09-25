@@ -94,11 +94,16 @@ end
 Turbine.Chat.Received = function (sender,args)
 	local msg = args.Message
 	if not msg then return end
+
+    -- Handle your birding changing:
+    -- ex: "Your proficiency in Birding has increased to 131."
     if (args.ChatType == Turbine.ChatType.Advancement) then
         local fp = msg:match(fpPat)
         if fp then Totals.fp = fp return end
     end
---	print("Chat type="..args.ChatType)
+
+    -- When you get a bird:
+    -- You have acquired: [Water Pipit].
 	if args.ChatType==Turbine.ChatType.SelfLoot then 
 		if msg:find("You have acquired: ") then
 
