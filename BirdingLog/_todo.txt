@@ -5,6 +5,11 @@ todo:
 	    Observation: Hobbies don't show up in the list of Trained Skills.
 	    Need to fall back to detecting key-bind for the skill.
 
+    Note:
+        If we can also know which keys are activating Quickslot Page Up and Quickslot Page Down, 
+        we can track which page the birding skill is on.
+        Maybe add an options checkbox "My birding skill is on multiple quickslot pages"?
+
 	If your have the plugin-recognized birding kit equipped and
 		you are not in combat and
 		you press the birding key then
