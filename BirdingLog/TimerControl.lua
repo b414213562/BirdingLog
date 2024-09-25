@@ -275,7 +275,7 @@ end
 
 function TimerControl:MarkSectionComplete()
     -- Re-birding observed!
-    local controlDetails = self:GetCurrentTimerControl(self.ElapsedTime - 0.25);
+    local controlDetails = self:GetCurrentTimerControl(self.ElapsedTime - 0.5);
     controlDetails.control:SetBackColor(Turbine.UI.Color.DarkGreen);
 end
 
