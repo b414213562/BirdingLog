@@ -223,7 +223,7 @@ function BL_Command:Execute( cmd,args )
 			end
 			if zn then 
 				print("Zone: "..zn)
-                SetLocStr(zc);
+                SetLocStr(Zone[zc].z);
 				BirdingLogWindowInstance.zoneMenu:SetText( Zone[zc].z )
 			else printe("Zone not found.") end
 		else printe("Invalid location for Birding.") end
