@@ -74,14 +74,14 @@ end
 CharacterSettings = Turbine.PluginData.Load(Turbine.DataScope.Character,"BL_CharacterSettings");
 if (type(CharacterSettings)) ~= "table" then
     CharacterSettings = {}
-
-    -- Initialize default settings 
-    InitSetting(CharacterSettings, "BL_Window", {});
-    InitSetting(CharacterSettings["BL_Window"], "VISIBLE", false);
-    InitSetting(CharacterSettings["BL_Window"], "X", (Turbine.UI.Display.GetWidth() - 340)/3);
-    InitSetting(CharacterSettings["BL_Window"], "Y", (Turbine.UI.Display:GetHeight() - 300)*.7);
-
 end
+
+-- Initialize default settings 
+InitSetting(CharacterSettings, "BL_Window", {});
+InitSetting(CharacterSettings["BL_Window"], "VISIBLE", false);
+InitSetting(CharacterSettings["BL_Window"], "X", (Turbine.UI.Display.GetWidth() - 340)/3);
+InitSetting(CharacterSettings["BL_Window"], "Y", (Turbine.UI.Display:GetHeight() - 300)*.7);
+
 
 import "Vinny.BirdingLog.BL_Window"
 
