@@ -26,9 +26,7 @@ todo:
 
 11. Improvement to Birding collections panel that allows to show just the birds in a region.
 
-13. Use Regional chat channel changes to auto-detect what region we're in. (See Deed Tracker)
-	The alias under Zone does this, need to make it bigger.
-	(How do we hide the shortcut box?)
+13. Obscure the shortcut box under Set Zone
 
 14. Add icon to open window.
 
