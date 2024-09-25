@@ -64,7 +64,7 @@ function TimerControl:Constructor()
                 self.activateActionAlt == args.Alt and
                 self.activateActionShift == args.Shift;
 
-            if (keyMatches and self.IsBirdingEquipped) then
+            if (keyMatches and self.IsBirdingEquipped and not player:IsInCombat()) then
                 -- Either we need to start the timer, or mark the current birding chance completed
                 self:ActionKeyRecieved();
             end

@@ -1,14 +1,5 @@
 todo:
 
-1. Auto-accept zone:
-    [DONE] When unloading, save the time.
-    Whenever the zone is changed, save the zone.
-    If the plugin is loaded within X seconds, 
-    accept that zone as true. Otherwise, ask "are you still in zone"?.
-        Or just broadcast that we need a zone.
-
-2. Add out-of-combat to requirement to activate birding skill.
-
 3. Figure out what skill the player is using to activate birding
 	3a. OR... find the birding skill, hook into its skill cooldown
 	    Observation: Hobbies don't show up in the list of Trained Skills.
