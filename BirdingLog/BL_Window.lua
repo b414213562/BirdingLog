@@ -133,8 +133,7 @@ function BirdingLogWindow:Constructor()
 	-- Create a Zone menu button
 	self.zoneMenu = self:AddField(DropMenu, "", {x=175,y=140}, {x=135,y=20} )
 	local action = function(args)
-		locStr = Zname[args]
-		if not Locs[locStr] then Locs[locStr] = {} end
+        SetLocStr(Zname[args]);
 	end
 	self.zoneMenu.Menu.Click = function()
 		self.zoneMenu:BuildMenu(Zlist,action)

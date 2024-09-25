@@ -34,6 +34,16 @@ Track = false
 -- You have acquired: [Minnow].
 -- Your proficiency in Birding has increased to 9.
 
+---Sets the locStr value and initializes the corresponding Locs[] entry if necessary
+---@param newLocStr any
+function SetLocStr(newLocStr)
+    locStr = newLocStr;
+    CharacterSettings["REGION"] = locStr;
+    if (locStr and not Locs[locStr]) then
+        Locs[locStr] = {}
+    end
+end
+
 BL_Options = Turbine.PluginData.Load(Turbine.DataScope.Server,"BL_Options")
 if not BL_Options then BL_Options = {} end
 
@@ -203,8 +213,7 @@ function BL_Command:Execute( cmd,args )
 			end
 			if zn then 
 				print("Zone: "..zn)
-				locStr = zc
-				if not Locs[zc] then Locs[zc] = {} end
+                SetLocStr(zc);
 				BirdingLogWindowInstance.zoneMenu:SetText( Zone[zc].z )
 			else printe("Zone not found.") end
 		else printe("Invalid location for Birding.") end
