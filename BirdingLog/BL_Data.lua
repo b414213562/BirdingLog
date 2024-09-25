@@ -6,22 +6,39 @@ Region = { Eriador=1, Rhovanion=2, Gondor=3, Mordor=4, Haradwaith=5 }
 RegN = {}
 for name,ix in pairs(Region) do RegN[ix] = name end
 
+-- Region variables:
+Angmar = "An";
+Breeland = "Br";
+Cardolan = "Ca";
+Dunland = "Du";
+Enedwaith = "En";
+EredLuin = "EL";
+Eregion = "Er";
+Evendim = "Ev";
+Forochel = "Fo";
+Lonelands = "Lo";
+MistyMountains = "MM";
+NorthDowns = "ND";
+Swanfleet = "Sw";
+TheShire = "Sh";
+Trollshaws = "Tr";
+
 Zone = {
-		['An']={z="Angmar", n=13, s=-4, e=-15, w=-41 },
-		['Br']={z="Bree-land", n=-18.5, s=-37, e=-42, w=-63 },
-		['Ca']={z="Cardolan", n=-37, s=-55, e=-28, w=-56 },
-		['Du']={z="Dunland", n=-75, s=-90, e=1, w=-26 },
-		['En']={z="Enedwaith", n=-57, s=-75, e=-9, w=-24 },
-		['EL']={z="Ered Luin", n=-13, s=-29, e=-89, w=-108 },
-		['Er']={z="Eregion", n=-40, s=-57, e=-6, w=-19 },
-		['Ev']={z="Evendim", n=-3, s=-20, e=-60, w=-76 },
-		['Fo']={z="Forochel", n=21, s=-3, e=-57, w=-89 },
-		['Lo']={z="the Lone-lands", n=-28, s=-38, e=-23, w=-42 },
-		['MM']={z="the Misty Mountains", n=-17, s=-32, e=9, w=-4 },
-		['ND']={z="the North Downs", n=-4, s=-18.5, e=-33, w=-60 },
-		['Sh']={z="the Shire", n=-20, s=-38, e=-63, w=-88 },
-		['Sw']={z="Swanfleet", n=-50, s=-66, e=-18, w=-36 },
-		['Tr']={z="the Trollshaws", n=-26, s=-44, e=-4, w=-24 },
+		[Angmar]={z="Angmar", n=13, s=-4, e=-15, w=-41 },
+		[Breeland]={z="Bree-land", n=-18.5, s=-37, e=-42, w=-63 },
+		[Cardolan]={z="Cardolan", n=-37, s=-55, e=-28, w=-56 },
+		[Dunland]={z="Dunland", n=-75, s=-90, e=1, w=-26 },
+		[Enedwaith]={z="Enedwaith", n=-57, s=-75, e=-9, w=-24 },
+		[EredLuin]={z="Ered Luin", n=-13, s=-29, e=-89, w=-108 },
+		[Eregion]={z="Eregion", n=-40, s=-57, e=-6, w=-19 },
+		[Evendim]={z="Evendim", n=-3, s=-20, e=-60, w=-76 },
+		[Forochel]={z="Forochel", n=21, s=-3, e=-57, w=-89 },
+		[Lonelands]={z="the Lone-lands", n=-28, s=-38, e=-23, w=-42 },
+		[MistyMountains]={z="the Misty Mountains", n=-17, s=-32, e=9, w=-4 },
+		[NorthDowns]={z="the North Downs", n=-4, s=-18.5, e=-33, w=-60 },
+		[TheShire]={z="the Shire", n=-20, s=-38, e=-63, w=-88 },
+		[Swanfleet]={z="Swanfleet", n=-50, s=-66, e=-18, w=-36 },
+		[Trollshaws]={z="the Trollshaws", n=-26, s=-44, e=-4, w=-24 },
 	}
 Zname,Zlist = {}, {}
 for zc,zt in Sort(Zone) do 
