@@ -20,6 +20,7 @@ function printe(text) print("<rgb=#FF6040>Error: "..text.."</rgb>") end
 
 import "Vinny.Common.Help"
 
+local enterPattern = "Entered the ([%a%p%u%l%s]*) %- Regional";
 local locPat = "You are on %a* server %d* at r(%d) lx(%d+) ly(%d+) ox(.-%d+%.?%d*) oy(.-%d+%.?%d*) oz(.-%d+%.?%d*)"
 local liPat = "You are on %a* server %d* at r(%d) lx(%d+) ly(%d+) i%d* ox(.-%d+%.?%d*) oy(.-%d+%.?%d*) oz(.-%d+%.?%d*)"
 local iPat = "You are on %a* server %d* at r(%d) lx(%d+) ly(%d+) cInside ox(.-%d+%.?%d*) oy(.-%d+%.?%d*) oz(.-%d+%.?%d*)"
@@ -154,6 +155,24 @@ Turbine.Chat.Received = function (sender,args)
 		return
 	end
 
+    -- Handle anything in the standard chat channel:
+    if (args.ChatType == Turbine.ChatType.Standard) then
+        local possibleEnterRegion = string.match(msg, enterPattern);
+        if (possibleEnterRegion) then
+            ChangeLocation(possibleEnterRegion);
+        end
+    end
+
+end
+
+function ChangeLocation(region)
+    if (ChatRegions[region]) then
+        local zc = ChatRegions[region];
+        local zoneName = Zone[zc].z;
+
+        SetLocStr(zoneName);
+        BirdingLogWindowInstance.zoneMenu:SetText(zoneName);
+    end
 end
 
 local function distance(dy,dx) return math.sqrt(dy*dy+dx*dx) end

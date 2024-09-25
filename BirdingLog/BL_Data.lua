@@ -23,6 +23,30 @@ Swanfleet = "Sw";
 TheShire = "Sh";
 Trollshaws = "Tr";
 
+ChatRegions = {
+    ["Bree-land"] = Breeland;
+    ["Bree-town"] = Breeland;
+    ["Archet"] = Breeland;
+
+    ["Shire"] = TheShire;
+
+    ["Ered Luin"] = EredLuin;
+    ["Thorin's Hall"] = EredLuin;
+
+    ["Lone-lands"] = Lonelands;
+    ["North Downs"] = NorthDowns;
+    ["Trollshaws"] = Trollshaws;
+    ["Misty Mountains"] = MistyMountains;
+    ["Evendim"] = Evendim;
+    ["Angmar"] = Angmar;
+    ["Forochel"] = Forochel;
+    ["Eregion"] = Eregion;
+    ["Enedwaith"] = Enedwaith;
+    ["Dunland"] = Dunland;
+    ["Cardolan"] = Cardolan;
+    ["Swanfleet"] = Swanfleet;
+};
+
 Zone = {
 		[Angmar]={z="Angmar", n=13, s=-4, e=-15, w=-41 },
 		[Breeland]={z="Bree-land", n=-18.5, s=-37, e=-42, w=-63 },
