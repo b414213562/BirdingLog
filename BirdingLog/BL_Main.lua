@@ -92,6 +92,16 @@ InitSetting(CharacterSettings["BL_Window"], "VISIBLE", false);
 InitSetting(CharacterSettings["BL_Window"], "X", (Turbine.UI.Display.GetWidth() - 340)/3);
 InitSetting(CharacterSettings["BL_Window"], "Y", (Turbine.UI.Display:GetHeight() - 300)*.7);
 
+InitSetting(CharacterSettings, "UNLOAD_TIME", 0.0);
+InitSetting(CharacterSettings, "REGION", "");
+
+-- trust the saved region if it's recent enough:
+local currentTime = Turbine.Engine.GetGameTime();
+local savedTime = CharacterSettings["UNLOAD_TIME"];
+local zoneAgeSeconds = currentTime - savedTime;
+if (zoneAgeSeconds < 15) then
+    SetLocStr(CharacterSettings["REGION"]);
+end
 
 import "Vinny.BirdingLog.BL_Window"
 
@@ -276,6 +286,7 @@ end
 Turbine.Shell.AddCommand( "bl;bll;blw;bl?", BL_Command )
 
 Plugins.BirdingLog.Unload = function(sender,args)
+    CharacterSettings["UNLOAD_TIME"] = Turbine.Engine.GetGameTime();
     Turbine.PluginData.Save(Turbine.DataScope.Server,"BL_Locs",Locs)
     Turbine.PluginData.Save(Turbine.DataScope.Character,"BL_Totals",Totals)
     Turbine.PluginData.Save(Turbine.DataScope.Character,"BL_CharacterSettings",CharacterSettings);
