@@ -58,11 +58,7 @@ function TimerControl:Constructor()
     self:SetWantsKeyEvents( true )
     self.KeyDown = function(sender, args)
         if (self.activateAction) then
-            local keyMatches =
-                self.activateAction == args.Action and
-                self.activateActionCtrl == args.Control and
-                self.activateActionAlt == args.Alt and
-                self.activateActionShift == args.Shift;
+            local keyMatches = self.activateAction == args.Action;
 
             if (keyMatches and self.IsBirdingEquipped and not player:IsInCombat()) then
                 -- Either we need to start the timer, or mark the current birding chance completed
@@ -185,11 +181,8 @@ function TimerControl:CreateTimerSection(left, width, color)
     return stopwatchControl;
 end
 
-function TimerControl:SetActionKey(action, hasCtrl, hasAlt, hasShift)
+function TimerControl:SetActionKey(action)
     self.activateAction = action;
-    self.activateActionCtrl = hasCtrl;
-    self.activateActionAlt = hasAlt;
-    self.activateActionShift = hasShift;
 end
 
 function TimerControl:GetLefts(width)
