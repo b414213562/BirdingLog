@@ -173,7 +173,6 @@ function BirdingLogWindow:Constructor()
     timerControl:SetPosition(10, 230);
     --timerControl:SetBackColor(Turbine.UI.Color.DarkGreen);
     timerControl:SetSize(320, 40);
-    timerControl:SetActionKey(268435498, false, false, false);
     timerControl:SetVisible(false);
 
     ---comment
@@ -216,4 +215,8 @@ end
 
 function BirdingLogWindow:BirdFound()
     self.TimerControl:BirdFound();
+end
+
+function BirdingLogWindow:SetActionKey(action)
+    self.TimerControl:SetActionKey(action);
 end

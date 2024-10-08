@@ -1,21 +1,5 @@
 todo:
 
-3. Figure out what skill the player is using to activate birding
-	3a. OR... find the birding skill, hook into its skill cooldown
-	    Observation: Hobbies don't show up in the list of Trained Skills.
-	    Need to fall back to detecting key-bind for the skill.
-
-    Note:
-        If we can also know which keys are activating Quickslot Page Up and Quickslot Page Down, 
-        we can track which page the birding skill is on.
-        Maybe add an options checkbox "My birding skill is on multiple quickslot pages"?
-
-	If your have the plugin-recognized birding kit equipped and
-		you are not in combat and
-		you press the birding key then
-			we should assume you birded.
-		end
-
 6. Show Birding proficiency on the UI so I don't have to look in my character/hobby screen.
 
 7. Script to import Birding process from LOTRO Companion.

@@ -9,6 +9,7 @@ import "Vinny.Common.Sort"
 
 import "Vinny.BirdingLog.Functions"
 import "Vinny.BirdingLog.BL_Data"
+import "Vinny.BirdingLog.KeybindWindow"
 
 -- Save player name for later use
 player = Turbine.Gameplay.LocalPlayer.GetInstance()
@@ -92,6 +93,8 @@ InitSetting(CharacterSettings, "BL_Window", {});
 InitSetting(CharacterSettings["BL_Window"], "VISIBLE", false);
 InitSetting(CharacterSettings["BL_Window"], "X", (Turbine.UI.Display.GetWidth() - 340)/3);
 InitSetting(CharacterSettings["BL_Window"], "Y", (Turbine.UI.Display:GetHeight() - 300)*.7);
+
+InitSetting(CharacterSettings, "BIRDING_ACTION", nil);
 
 InitSetting(CharacterSettings, "UNLOAD_TIME", 0.0);
 InitSetting(CharacterSettings, "REGION", "");
@@ -317,6 +320,32 @@ end
 -- Options panel
 import "Vinny.Common.Options"
 OP = Vinny.Common.Options_Init(print,BL_Options,BirdingLogWindowInstance,"BL_Options")
+
+local setKeybindButton = Turbine.UI.Lotro.Button();
+setKeybindButton:SetParent(OP);
+setKeybindButton:SetWidth(150);
+setKeybindButton:SetPosition(10, 60);
+setKeybindButton:SetText("Set Birding Keybind");
+setKeybindButton.Click = function(sender, args)
+    KeybindWindowInstance:SetVisible(true);
+end
+
+OP.KeybindTextbox = Turbine.UI.Label();
+OP.KeybindTextbox:SetParent(OP);
+OP.KeybindTextbox:SetText("No Shortcut Set");
+OP.KeybindTextbox:SetPosition(175, 60);
+OP.KeybindTextbox:SetSize(150, setKeybindButton:GetHeight());
+OP.KeybindTextbox:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
+
+if (CharacterSettings["BIRDING_ACTION"]) then
+    local name = GetActionName(CharacterSettings["BIRDING_ACTION"]);
+    if (name) then
+        OP.KeybindTextbox:SetText(name);
+    end
+    BirdingLogWindowInstance:SetActionKey(CharacterSettings["BIRDING_ACTION"]);
+end
+
+-- ~Options panel
 
 -- Help text
 help = {
