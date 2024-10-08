@@ -138,8 +138,8 @@ function BirdingLogWindow:Constructor()
 	self.zoneMenu.Menu.Click = function()
 		self.zoneMenu:BuildMenu(Zlist,action)
 	end
-    if (locStr) then
-        self.zoneMenu:SetText(locStr);
+    if (locStr and locStr ~= "") then
+        self.zoneMenu:SetText(Zone[locStr].z);
     end
 
 	-- Create a sighting listing button
