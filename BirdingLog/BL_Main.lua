@@ -173,7 +173,7 @@ function ChangeLocation(region)
         local zc = ChatRegions[region];
         local zoneName = Zone[zc].z;
 
-        SetLocStr(zoneName);
+        SetLocStr(zc);
         BirdingLogWindowInstance.zoneMenu:SetText(zoneName);
     end
 end
@@ -245,7 +245,7 @@ function BL_Command:Execute( cmd,args )
 			end
 			if zn then 
 				print("Zone: "..zn)
-                SetLocStr(Zone[zc].z);
+                SetLocStr(zc);
 				BirdingLogWindowInstance.zoneMenu:SetText( Zone[zc].z )
 			else printe("Zone not found.") end
 		else printe("Invalid location for Birding.") end
